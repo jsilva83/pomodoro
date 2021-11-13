@@ -8,8 +8,8 @@ class TurtleRaceGame:
         """Constructs a new turtle race game."""
         # Initialize object attributes.
         self.window = turtle.Screen()
-        self.turtles =[turtle_class.TurtleClass('red'), turtle_class.TurtleClass('green'),
-                       turtle_class.TurtleClass('blue'), turtle_class.TurtleClass('black')]
+        self.turtles = [turtle_class.TurtleClass('red'), turtle_class.TurtleClass('green'),
+                        turtle_class.TurtleClass('blue'), turtle_class.TurtleClass('black')]
         # self.turtle1 = turtle_class.TurtleClass('red')
         # self.turtle2 = turtle_class.TurtleClass('green')
         # self.turtle3 = turtle_class.TurtleClass('blue')
@@ -58,4 +58,3 @@ class TurtleRaceGame:
             #     print(f'{self.turtle4.get_color()} turtle wins!')
         self.window.exitonclick()
         return
-
