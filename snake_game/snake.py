@@ -6,6 +6,8 @@ UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+SNAKE_SHAPE = 'square'
+SNAKE_COLOR = 'white'
 
 
 class Snake:
@@ -15,15 +17,26 @@ class Snake:
 
     def __init__(self) -> None:
         self.snake_segments = []
+        self.snake_size = 0
         for pos in STARTING_POSITIONS:
-            new_snake_segment = turtle.Turtle()
-            new_snake_segment.penup()
-            new_snake_segment.shape('square')
-            new_snake_segment.color('white')
-            new_snake_segment.goto(pos)
-            self.snake_segments.append(new_snake_segment)
-        self.snake_size = 3
+            self.add_segment(pos)
         self.head = self.snake_segments[0]
+        return
+
+    def add_segment(self, position) -> None:
+        """Creates and adds segment to snake at position parameter."""
+        new_snake_segment = turtle.Turtle()
+        new_snake_segment.penup()
+        new_snake_segment.shape(SNAKE_SHAPE)
+        new_snake_segment.color(SNAKE_COLOR)
+        new_snake_segment.goto(position)
+        self.snake_segments.append(new_snake_segment)
+        self.snake_size += 1
+        return
+
+    def extend(self) -> None:
+        """Adds a new snake segment at the end of the snake."""
+        self.add_segment(self.snake_segments[-1].position())
         return
 
     def move(self) -> None:
