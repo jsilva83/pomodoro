@@ -2,6 +2,7 @@
 import time
 import turtle
 import paddle
+import scoreboard
 
 # Constants.
 GAME_WINDOW_WIDTH = 800
@@ -22,6 +23,8 @@ game_window.tracer(0)
 # Create right paddle.
 r_paddle = paddle.Paddle(R_PADDLE_INITIAL_POSITIONS, game_window)
 l_paddle = paddle.Paddle(L_PADDLE_INITIAL_POSITIONS, game_window)
+# Create scoreboard.
+scoring = scoreboard.Scoreboard()
 # Listen to keystrokes
 game_window.listen()
 game_window.onkeypress(key='q', fun=l_paddle.move_up)
