@@ -10,8 +10,8 @@ GAME_WINDOW_HEIGHT = 600
 GAME_WINDOW_BACKGROUND_COLOR = 'black'
 GAME_WINDOW_TITLE = 'My Pong Game'
 PADDLE_SPEED = 0.1
-R_PADDLE_INITIAL_POSITIONS = [(370, 20), (370, 0), (370, -20)]
-L_PADDLE_INITIAL_POSITIONS = [(-380, 20), (-380, 0), (-380, -20)]
+R_PADDLE_INITIAL_POSITION = (370, 0)
+L_PADDLE_INITIAL_POSITION = (-380, 0)
 
 # Game initialization.
 game_window = turtle.Screen()
@@ -21,8 +21,8 @@ game_window.title(GAME_WINDOW_TITLE)
 # Hide the details of setting the squares in position and moving
 game_window.tracer(0)
 # Create right paddle.
-r_paddle = paddle.Paddle(R_PADDLE_INITIAL_POSITIONS, game_window)
-l_paddle = paddle.Paddle(L_PADDLE_INITIAL_POSITIONS, game_window)
+r_paddle = paddle.Paddle(R_PADDLE_INITIAL_POSITION, game_window)
+l_paddle = paddle.Paddle(L_PADDLE_INITIAL_POSITION, game_window)
 # Create scoreboard.
 scoring = scoreboard.Scoreboard()
 # Listen to keystrokes
