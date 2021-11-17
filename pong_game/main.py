@@ -4,7 +4,7 @@ import turtle
 # Importing internal packages.
 import paddle
 import scoreboard
-import fish
+import ball
 
 # Constants.
 GAME_WINDOW_WIDTH = 800
@@ -28,7 +28,7 @@ l_paddle = paddle.Paddle(L_PADDLE_INITIAL_POSITION, game_window)
 # Create scoreboard.
 # scoring = scoreboard.Scoreboard()
 # Create ball.
-my_ball = fish.Fish()
+my_ball = ball.Ball()
 # Listen to keystrokes.
 game_window.listen()
 game_window.onkeypress(key='q', fun=l_paddle.move_up)

@@ -2,7 +2,7 @@
 import turtle
 # Importing internal packages.
 import aball
-import fish
+import ball
 
 win = turtle.Screen()
 win.screensize(300, 300)

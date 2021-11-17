@@ -6,7 +6,7 @@ BALL_SHAPE = 'circle'
 BALL_COLOR = 'white'
 
 
-class Fish(turtle.Turtle):
+class Ball(turtle.Turtle):
 
     def __init__(self):
         super().__init__()
