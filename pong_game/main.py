@@ -1,8 +1,10 @@
-# Importing packages.
+# Importing external packages.
 import time
 import turtle
+# Importing internal packages.
 import paddle
 import scoreboard
+import fish
 
 # Constants.
 GAME_WINDOW_WIDTH = 800
@@ -18,25 +20,26 @@ game_window = turtle.Screen()
 game_window.setup(width=GAME_WINDOW_WIDTH, height=GAME_WINDOW_HEIGHT)
 game_window.bgcolor(GAME_WINDOW_BACKGROUND_COLOR)
 game_window.title(GAME_WINDOW_TITLE)
-# Hide the details of setting the squares in position and moving
+# Hide the details of setting the turtles in position and moving to initial position.
 game_window.tracer(0)
 # Create right paddle.
 r_paddle = paddle.Paddle(R_PADDLE_INITIAL_POSITION, game_window)
 l_paddle = paddle.Paddle(L_PADDLE_INITIAL_POSITION, game_window)
 # Create scoreboard.
-scoring = scoreboard.Scoreboard()
-# Listen to keystrokes
+# scoring = scoreboard.Scoreboard()
+# Create ball.
+my_ball = fish.Fish()
+# Listen to keystrokes.
 game_window.listen()
 game_window.onkeypress(key='q', fun=l_paddle.move_up)
 game_window.onkeypress(key='a', fun=l_paddle.move_down)
 game_window.onkeypress(key='p', fun=r_paddle.move_up)
 game_window.onkeypress(key='l', fun=r_paddle.move_down)
-# Start the game
+# Start the game.
 game_is_on = True
 while game_is_on:
-    # Update the window with the last movements
+    # Update the window with the last movements.
     game_window.update()
     time.sleep(PADDLE_SPEED)
-    pass
 # Exit window on click.
 game_window.exitonclick()

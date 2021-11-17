@@ -27,6 +27,7 @@ class Paddle(turtle.Turtle):
         self.shapesize(stretch_wid=5, stretch_len=1)
         self.penup()
         self.goto(initial_position)
+        return
 
     def move_up(self) -> None:
         """Moves the paddle up until it hits the wall."""
