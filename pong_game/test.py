@@ -1,8 +1,6 @@
 # Importing external packages.
 import turtle
 # Importing internal packages.
-import aball
-import ball
 
 win = turtle.Screen()
 win.screensize(300, 300)

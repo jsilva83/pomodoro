@@ -1,10 +1,11 @@
 # Importing external packages.
 import time
 import turtle
+
+import ball
 # Importing internal packages.
 import paddle
 import scoreboard
-import ball
 
 # Constants.
 GAME_WINDOW_WIDTH = 800
@@ -31,6 +32,7 @@ game_window.tracer(0)
 r_paddle = paddle.Paddle(R_PADDLE_INITIAL_POSITION, game_window)
 l_paddle = paddle.Paddle(L_PADDLE_INITIAL_POSITION, game_window)
 # Create scoreboard.
+print('Calling scoreboard class')
 scoring = scoreboard.Scoreboard()
 # Create ball.
 my_ball = ball.Ball()

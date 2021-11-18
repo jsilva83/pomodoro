@@ -1,6 +1,6 @@
 # Importing external packages.
-import turtle
 import random
+import turtle
 
 # Constants.
 BALL_SHAPE = 'circle'
