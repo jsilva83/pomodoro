@@ -48,11 +48,17 @@ class Ball(turtle.Turtle):
         return
 
     def bounce_y(self) -> None:
-        """Bounces the ball if hits the wall"""
+        """Bounces the ball if hits the wall."""
         self.y_move *= -1
         return
 
     def bounce_x(self) -> None:
-        """Bounces the ball if hits the wall"""
+        """Bounces the ball if hits the wall."""
         self.x_move *= -1
+        return
+
+    def reset_position(self) -> None:
+        """Reset position of ball to center."""
+        self.goto(0, 0)
+        self.bounce_x()
         return

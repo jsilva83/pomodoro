@@ -54,5 +54,11 @@ while game_is_on:
     if (my_ball.distance(r_paddle) < PADDLE_TOLERANCE and my_ball.xcor() > GAME_WINDOW_MAX_X_POSITION) \
             or (my_ball.distance(l_paddle) < PADDLE_TOLERANCE and my_ball.xcor() < GAME_WINDOW_MIN_X_POSITION):
         my_ball.bounce_x()
+    # Detect when the right paddle misses.
+    if my_ball.xcor() > GAME_WINDOW_MAX_X_POSITION + 40:
+        my_ball.reset_position()
+    # Detect when the left paddle misses.
+    if my_ball.xcor() < GAME_WINDOW_MIN_X_POSITION - 40:
+        my_ball.reset_position()
 # Exit window on click.
 game_window.exitonclick()
