@@ -12,6 +12,7 @@ class Scoreboard(turtle.Turtle):
         super().__init__()
         self.text = 'Score: '
         self.score = 0
+        self.high_score = 0
         self.color('white')
         self.hideturtle()
         self.penup()
@@ -28,11 +29,17 @@ class Scoreboard(turtle.Turtle):
     def update_display(self) -> None:
         """Clears the turtle object and writes the updated scoreboard score"""
         self.clear()
-        self.write(f'{self.text}{self.score}', align=SCOREBOARD_ALIGNMENT, font=SCOREBOARD_FONT)
+        self.write(f'{self.text}{self.score}  High Score: {self.high_score}', align=SCOREBOARD_ALIGNMENT, font=SCOREBOARD_FONT)
         return
 
-    def display_game_over(self) -> None:
-        """Turtle object displays Game Over in the center"""
-        self.goto(0, 0)
-        self.write('GAME OVER.', align=SCOREBOARD_ALIGNMENT, font=SCOREBOARD_FONT)
-        return
+    def reset(self) -> None:
+        if self.score > self.high_score:
+            self.high_score = self.score
+        self.score = 0
+        self.update_display()
+
+    # def display_game_over(self) -> None:
+    #     """Turtle object displays Game Over in the center"""
+    #     self.goto(0, 0)
+    #     self.write('GAME OVER.', align=SCOREBOARD_ALIGNMENT, font=SCOREBOARD_FONT)
+    #     return

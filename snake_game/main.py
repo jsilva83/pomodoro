@@ -18,13 +18,13 @@ window.bgcolor('black')
 window.title('My Python Snake')
 # Hide the details of setting the squares in position and moving
 window.tracer(0)
-# Create snake object
+# Create snake object.
 my_snake = snake.Snake()
-# Create a food object
+# Create a food object.
 my_food = food.Food()
-# Create a scoreboard object
+# Create a scoreboard object.
 my_scoreboard = scoreboard.Scoreboard()
-# Listen to keystrokes
+# Listen to keystrokes.
 window.listen()
 window.onkey(key='Up', fun=my_snake.up)
 window.onkey(key='Down', fun=my_snake.down)
