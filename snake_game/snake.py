@@ -18,9 +18,16 @@ class Snake:
     def __init__(self) -> None:
         self.snake_segments = []
         self.snake_size = 0
+        self.head = None
+        self.create_snake()
+        return
+
+    def create_snake(self) -> None:
+        """Creates the first 3 segments of the sanke."""
         for pos in STARTING_POSITIONS:
             self.add_segment(pos)
         self.head = self.snake_segments[0]
+        self.snake_size = 3
         return
 
     def add_segment(self, position) -> None:
@@ -81,8 +88,9 @@ class Snake:
 
     def reset(self) -> None:
         """Places the snake with three segments at the center of the screen"""
-        self.snake_segments = self.snake_segments[0:3]
-        for n in range(3):
-            self.snake_segments[n].goto(STARTING_POSITIONS[n])
-        self.snake_size = 3
+        # Send the segments of the screen.
+        for a_segment in self.snake_segments:
+            a_segment.goto(650, 650)
+        self.snake_segments.clear()
+        self.create_snake()
         return
