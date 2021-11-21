@@ -32,26 +32,26 @@ window.onkey(key='Left', fun=my_snake.left)
 window.onkey(key='Right', fun=my_snake.right)
 game_is_on = True
 while game_is_on:
-    # Update the window with the last movements
+    # Update the window with the last movements.
     window.update()
     time.sleep(SNAKE_SPEED)
     my_snake.move()
-    # Detect collision with food
+    # Detect collision with food.
     if my_snake.head.distance(my_food) < WALL_COLLISION_TOLERANCE:
         my_food.next_position()
         my_scoreboard.increase_score()
         my_snake.extend()
-    # Detect collision with wall
+    # Detect collision with wall.
     if my_snake.head.xcor() > RIGHT_WALL_LIMIT or my_snake.head.xcor() < LEFT_WALL_LIMIT \
             or my_snake.head.ycor() > UP_WALL_LIMIT or my_snake.head.ycor() < DOWN_WALL_LIMIT:
-        # Game over
-        my_scoreboard.display_game_over()
-        game_is_on = False
+        # Reset game.
+        my_scoreboard.reset()
+        my_snake.reset()
     # Detect collision with tail
     # If the head collides with any segment in the tail
     for segment in my_snake.snake_segments[1:]:
         if my_snake.head.distance(segment) < TAIL_COLLISION_TOLERANCE:
-            # Game over
-            my_scoreboard.display_game_over()
-            game_is_on = False
+            # Reset game.
+            my_scoreboard.reset()
+            my_snake.reset()
 window.exitonclick()

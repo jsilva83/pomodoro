@@ -78,3 +78,11 @@ class Snake:
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
         return
+
+    def reset(self) -> None:
+        """Places the snake with three segments at the center of the screen"""
+        self.snake_segments = self.snake_segments[0:3]
+        for n in range(3):
+            self.snake_segments[n].goto(STARTING_POSITIONS[n])
+        self.snake_size = 3
+        return
