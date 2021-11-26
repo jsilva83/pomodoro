@@ -12,12 +12,24 @@ class Scoreboard(turtle.Turtle):
         super().__init__()
         self.text = 'Score: '
         self.score = 0
-        self.high_score = 0
+        self.high_score = self.read_score_from_file()
         self.color('white')
         self.hideturtle()
         self.penup()
         self.goto(SCOREBOARD_X_POS, SCOREBOARD_Y_POS)
         self.update_display()
+        return
+
+    def read_score_from_file(self) -> int:
+        score_file_obj = open(file='data.txt', mode='r')
+        score_file_contents = score_file_obj.read()
+        score_file_obj.close()
+        return int(score_file_contents)
+
+    def write_score_to_file(self) -> None:
+        score_file_obj = open(file='data.txt', mode='w')
+        score_file_obj.write(str(self.high_score))
+        score_file_obj.close()
         return
 
     def increase_score(self) -> None:
@@ -35,8 +47,10 @@ class Scoreboard(turtle.Turtle):
     def reset(self) -> None:
         if self.score > self.high_score:
             self.high_score = self.score
+            self.write_score_to_file()
         self.score = 0
         self.update_display()
+        return
 
     # def display_game_over(self) -> None:
     #     """Turtle object displays Game Over in the center"""
