@@ -19,7 +19,7 @@ letter_content = input_file.read()
 input_file.close()
 # Write the files to destination folder.
 for n in range(list_size):
-    with open('./Output/ReadyToSend/' + names_list[n] + '.txt', 'w') as output_file:
+    with open(f'./Output/ReadyToSend/{names_list[n]}.txt', 'w') as output_file:
         a_content = letter_content.replace('[name]', names_list[n])
         output_file.write(a_content)
 
