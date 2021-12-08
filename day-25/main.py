@@ -57,8 +57,7 @@
 import pandas as pd
 
 # Import the data series from CSV file but only a data series with the colors of squirrels.
-a_data = pd.read_csv('2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv',
-                     usecols=['Primary Fur Color'])
+a_data = pd.read_csv('2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv', usecols=['Primary Fur Color'])
 # Create a series with only the unique values of color and counting.
 counting_furs = a_data.value_counts(ascending=True)
 # Initialize the dictionary to create the output dataframe set.
