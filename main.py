@@ -13,9 +13,21 @@ LONG_BREAK_MIN = 20
 
 # Timer reset.
 
+
 # Timer mechanism.
+def start_timer():
+    count_down(5)
+
 
 # Countdown mechanism.
+def count_down(counter):
+    # Changes the attributes of one of the canvas items, in this case the text.
+    a_canvas.itemconfig(a_text_canvas, text=counter)
+    if counter > 0:
+        # Generates an event every 1 second.
+        root_window.after(1000, count_down, counter - 1)
+    return
+
 
 # UI Setup.
 # Create a root window.
@@ -32,11 +44,11 @@ bg_image = tkinter.PhotoImage(file='tomato.png')
 a_canvas = tkinter.Canvas()
 a_canvas.config(width=200, height=224, bg=YELLOW, highlightthickness=0)
 a_canvas.create_image(100, 112, image=bg_image, anchor='center')
-a_canvas.create_text(100, 130, text='00:00', fill='white', font=(FONT_NAME, 35, 'bold'))
+a_text_canvas = a_canvas.create_text(100, 130, text='00:00', fill='white', font=(FONT_NAME, 35, 'bold'))
 a_canvas.grid(row=1, column=1)
 # Create button start.
 start_button = tkinter.Button(root_window)
-start_button.config(text='Start', font=('Arial', 12), anchor='center', highlightthickness=0)
+start_button.config(text='Start', font=('Arial', 12), anchor='center', highlightthickness=0, command=start_timer)
 start_button.grid(row=2, column=0)
 # Create button reset.
 reset_button = tkinter.Button(root_window)
