@@ -1,5 +1,6 @@
 # Import external packages.
 import tkinter
+import math
 
 # Global constants.
 PINK = "#e2979c"
@@ -16,15 +17,21 @@ LONG_BREAK_MIN = 20
 
 # Timer mechanism.
 def start_timer():
-    count_down(5)
+    count_down(5 * 60)
+    return
 
 
 # Countdown mechanism.
 def count_down(counter):
+    # Convert seconds to minutes and seconds.
+    count_down_min = math.floor(counter / 60)
+    count_down_sec = counter % 60
+    if count_down_sec < 10:
+        count_down_sec = f'0{count_down_sec}'
     # Changes the attributes of one of the canvas items, in this case the text.
-    a_canvas.itemconfig(a_text_canvas, text=counter)
+    a_canvas.itemconfig(a_text_canvas, text=f'{count_down_min}:{count_down_sec}')
     if counter > 0:
-        # Generates an event every 1 second.
+        # Generates an event every 1 (1000 miliseconds) second and calls a function.
         root_window.after(1000, count_down, counter - 1)
     return
 
