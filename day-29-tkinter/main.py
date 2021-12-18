@@ -11,3 +11,4 @@ blue = tkinter.Label(root)
 blue.config(bg='blue', width=40, height=5)
 blue.grid(row=2, column=0, columnspan=2)
 root.mainloop()
+
